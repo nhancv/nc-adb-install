@@ -17,4 +17,6 @@ Force to install apk
 ```bash
 > sh apk_install.sh <path to apk>
 ```
+
+# Demo
 ![Preview](./demo.gif)
