@@ -4,7 +4,7 @@ ECHO Command list:
 ECHO 1. Open browser with url
 ECHO 2. Force install apk
 ECHO --------------------
-SET /p commandNumber="Which command you want? "
+SET /p commandNumber="Which command you want: "
 IF %commandNumber%==1 GOTO :INSTALL_URL
 IF %commandNumber%==2 GOTO :FORCE_INSTALL
 
@@ -16,9 +16,9 @@ adb shell am start -a android.intent.action.VIEW -d '%APK_URL%'
 GOTO :END
 
 :FORCE_INSTALL
-SET /p PATH_NAME="Enter the path to apk: "
+SET /p APK_URL="Enter the path to apk: "
 
-FOR /F "tokens=* USEBACKQ" %%F IN (`aapt dump badging %PATH_NAME%`) DO (
+FOR /F "tokens=* USEBACKQ" %%F IN (`aapt dump badging %APK_URL%`) DO (
 SET APK_INFO=%%F
 GOTO :FORCE_INSTALL_BREAK
 )
@@ -39,8 +39,8 @@ adb shell pm clear %APK_PACKAGE%
 ECHO uninstall: %APK_PACKAGE%
 adb uninstall %APK_PACKAGE%
 
-ECHO install: %PATH_NAME%
-adb install -r %PATH_NAME%
+ECHO install: %APK_URL%
+adb install -r %APK_URL%
 
 ECHO start: %APK_PACKAGE%
 adb shell monkey -p %APK_PACKAGE% -c android.intent.category.LAUNCHER 1
