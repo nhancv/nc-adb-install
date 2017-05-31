@@ -6,8 +6,7 @@ force install apk file avoid some time error install manually
 ## Windows
 If you machine do not have adb driver, please run `ADBDriverInstaller.exe` to install.
 
-Open adb_win
-Double click "android-util.bat" file to run
+Open `adb_win`, double click `android-util.bat` file to run
 
 ## MAC/LINUX
 cd adb_mac/adb_linux
