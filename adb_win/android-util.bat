@@ -2,6 +2,8 @@
 SETLOCAL
 CD /d %~dp0
 
+type dot.txt
+
 adb devices
 ECHO Command list:
 ECHO 1. Open browser with url
